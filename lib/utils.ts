@@ -1,3 +1,4 @@
+import EducationForm from "@/components/shared/EducationForm";
 import GeneralInfoForm from "@/components/shared/GeneralInfoForm";
 import PersonalInfoForm from "@/components/shared/PersonalInfoForm";
 import WorkExperienceForm from "@/components/shared/WorkExperienceForm";
@@ -24,5 +25,10 @@ export const steps: StepsProp[] = [
     title: "Work experience",
     component: WorkExperienceForm,
     key: "work-experience",
+  },
+  {
+    title: "Education",
+    component: EducationForm,
+    key: "edcuation",
   },
 ];
