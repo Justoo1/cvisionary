@@ -1,6 +1,6 @@
 "use client";
 
-import { skillsSchema, SkillsValues } from "@/lib/validation";
+import { summarySchema, SummaryValues } from "@/lib/validation";
 import { EditorFormProps } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useEffect } from "react";
@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -16,11 +15,11 @@ import {
 } from "../ui/form";
 import { Textarea } from "../ui/textarea";
 
-const SkillsForm = ({ resumeData, setResumeData }: EditorFormProps) => {
-  const form = useForm<SkillsValues>({
-    resolver: zodResolver(skillsSchema),
+const SummaryForm = ({ resumeData, setResumeData }: EditorFormProps) => {
+  const form = useForm<SummaryValues>({
+    resolver: zodResolver(summarySchema),
     defaultValues: {
-      skills: resumeData.skills || [],
+      summary: resumeData.summary || "",
     },
   });
 
@@ -30,14 +29,7 @@ const SkillsForm = ({ resumeData, setResumeData }: EditorFormProps) => {
       if (!isValid) return;
 
       // update the resume data
-      setResumeData({
-        ...resumeData,
-        skills:
-          values.skills
-            ?.filter((skill) => skill !== undefined)
-            .map((skill) => skill.trim())
-            .filter((skill) => skill !== "") || [],
-      });
+      setResumeData({ ...resumeData, ...values });
     });
 
     return unsubscribe;
@@ -46,30 +38,26 @@ const SkillsForm = ({ resumeData, setResumeData }: EditorFormProps) => {
   return (
     <div className="mx-auto max-w-xl space-y-6">
       <div className="space-y-1.5 text-center">
-        <h2 className="text-2xl font-semibold">Skills</h2>
-        <p className="text-sm text-muted-foreground">What are you good at?</p>
+        <h2 className="text-2xl font-semibold">Professional Summary</h2>
+        <p className="text-sm text-muted-foreground">
+          Write a short introduction of yourself or let the AI generate one base
+          on your entered information.
+        </p>
       </div>
       <Form {...form}>
         <form className="space-y-3">
           <FormField
             control={form.control}
-            name="skills"
+            name="summary"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="sr-only">Skills</FormLabel>
+                <FormLabel className="sr-only">Professional Summary</FormLabel>
                 <FormControl>
                   <Textarea
                     {...field}
-                    placeholder="e.g. HTML, CSS, JavaScript, React, ..."
-                    onChange={(e) => {
-                      const skills = e.target.value.split(",");
-                      field.onChange(skills);
-                    }}
+                    placeholder="Write a brief engaging intro about yourself."
                   />
                 </FormControl>
-                <FormDescription>
-                  Separate each skill with a comma.
-                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -80,4 +68,4 @@ const SkillsForm = ({ resumeData, setResumeData }: EditorFormProps) => {
   );
 };
 
-export default SkillsForm;
+export default SummaryForm;
