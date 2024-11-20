@@ -1,0 +1,13 @@
+1. Primary Colors (Brand Colors):
+Blue (#004AAD or #1E90FF): Symbolizes trust, reliability, and intelligence (great for professional tools).
+White (#FFFFFF): Keeps the design clean and modern.
+2. Secondary Colors (Highlights and Accents):
+Green (#28C76F or #2ECC71): Represents growth, success, and positivity.
+Gold (#FFD700 or #F4C430): Adds a sense of achievement and premium quality.
+3. Neutral Colors (Background and Text):
+Light Gray (#F5F5F5 or #EAEAEA): For background, ensuring a clean interface.
+Dark Gray (#4A4A4A or #333333): For text, offering excellent readability.
+Example Color Combination:
+Header and Buttons: Deep Blue with Green highlights.
+Background: Light Gray or White for a minimalistic look.
+Text: Dark Gray with occasional Gold accents for headings.
