@@ -1,6 +1,7 @@
 import EducationForm from "@/components/shared/EducationForm";
 import GeneralInfoForm from "@/components/shared/GeneralInfoForm";
 import PersonalInfoForm from "@/components/shared/PersonalInfoForm";
+import SkillsForm from "@/components/shared/SkillsForm";
 import WorkExperienceForm from "@/components/shared/WorkExperienceForm";
 import { StepsProp } from "@/types";
 import { clsx, type ClassValue } from "clsx";
@@ -30,5 +31,10 @@ export const steps: StepsProp[] = [
     title: "Education",
     component: EducationForm,
     key: "edcuation",
+  },
+  {
+    title: "Skills",
+    component: SkillsForm,
+    key: "skills",
   },
 ];
