@@ -1,13 +1,21 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { steps } from "@/lib/utils";
+import { FileUserIcon, PenLineIcon } from "lucide-react";
 
 interface FooterProps {
   currentStep: string;
   setCurrentStep: (step: string) => void;
+  showSmResumePreview: boolean;
+  setShowSmResumePreview: (show: boolean) => void;
 }
 
-const Footer = ({ currentStep, setCurrentStep }: FooterProps) => {
+const Footer = ({
+  currentStep,
+  setCurrentStep,
+  showSmResumePreview,
+  setShowSmResumePreview,
+}: FooterProps) => {
   const previousStep = steps.find(
     (_, index) => steps[index + 1]?.key === currentStep,
   )?.key;
@@ -35,6 +43,15 @@ const Footer = ({ currentStep, setCurrentStep }: FooterProps) => {
             Next step
           </Button>
         </div>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => setShowSmResumePreview(!showSmResumePreview)}
+          className="md:hidden"
+          title="Toggle Resume Preview"
+        >
+          {showSmResumePreview ? <PenLineIcon /> : <FileUserIcon />}
+        </Button>
         <div className="flex items-center gap-3">
           <Button asChild variant="secondary">
             <Link href="/resumes">Close</Link>
