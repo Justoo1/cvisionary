@@ -5,14 +5,17 @@ import { steps } from "@/lib/utils";
 import { formUrlQuery } from "@/lib/urls";
 import BreadCrumbs from "./BreadCrumbs";
 import Footer from "./Footer";
-import { ResumeValues } from "@/lib/validation";
+import { getDefaultResumeValues, ResumeValues } from "@/lib/validation";
 import { useState } from "react";
+import ReumePreviewSection from "./ReumePreviewSection";
 
 const ResumeEditor = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const [resumeData, setResumeData] = useState<ResumeValues>({});
+  const [resumeData, setResumeData] = useState<ResumeValues>(
+    getDefaultResumeValues(),
+  );
 
   const currentStep = searchParams.get("step") || steps[0].key;
   const setStep = (key: string) => {
@@ -50,9 +53,10 @@ const ResumeEditor = () => {
             )}
           </div>
           <div className="grow md:border-r" />
-          <div className="hidden w-1/2 md:flex">
-            <pre>{JSON.stringify(resumeData, null, 2)}</pre>
-          </div>
+          <ReumePreviewSection
+            resumeData={resumeData}
+            setResumeData={setResumeData}
+          />
         </div>
       </main>
       <Footer currentStep={currentStep} setCurrentStep={setStep} />

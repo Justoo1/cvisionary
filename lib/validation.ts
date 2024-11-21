@@ -82,9 +82,29 @@ export const resumeSchema = z.object({
   ...edcuationSchema.shape,
   ...skillsSchema.shape,
   ...summarySchema.shape,
+  colorHex: optionalString,
+  borderStyle: optionalString,
 });
 
 export type ResumeValues = Omit<z.infer<typeof resumeSchema>, "photo"> & {
   id?: string;
   photo?: File | string | null;
 };
+
+export const getDefaultResumeValues = (): ResumeValues => ({
+  title: "",
+  description: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  jobTitle: "",
+  city: "",
+  country: "",
+  phone: "",
+  workExperiences: [],
+  educations: [],
+  skills: [],
+  summary: "",
+  id: "",
+  photo: null,
+});
