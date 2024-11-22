@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Textarea } from "../ui/textarea";
+import GenerateSummaryButton from "./GenerateSummaryButton";
 
 const SummaryForm = ({ resumeData, setResumeData }: EditorFormProps) => {
   const form = useForm<SummaryValues>({
@@ -59,6 +60,12 @@ const SummaryForm = ({ resumeData, setResumeData }: EditorFormProps) => {
                   />
                 </FormControl>
                 <FormMessage />
+                <GenerateSummaryButton
+                  resumeData={resumeData}
+                  onSummaryGenerated={(summary) =>
+                    form.setValue("summary", summary)
+                  }
+                />
               </FormItem>
             )}
           />
