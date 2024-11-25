@@ -1,6 +1,6 @@
 import { ResumeValues } from "@/lib/validation";
 import { Prisma } from "@prisma/client";
-import React from "react";
+import { ComponentType } from "react";
 
 export type EditorFormProps = {
   resumeData: ResumeValues;
@@ -9,7 +9,7 @@ export type EditorFormProps = {
 
 export type StepsProp = {
   title: string;
-  component: React.ComponentType<EditorFormProps>;
+  component: ComponentType<EditorFormProps>;
   key: string;
 };
 
@@ -21,3 +21,18 @@ export const resumeDataInclude = {
 export type ResumeServerData = Prisma.ResumeGetPayload<{
   include: typeof resumeDataInclude;
 }>;
+
+export type TemplateProps = {
+  id: string;
+  name: string;
+  component: ComponentType;
+};
+
+export type TemplatesByCountry = {
+  [key: string]: TemplateProps[];
+};
+
+export type Country = {
+  id: string;
+  name: string;
+};

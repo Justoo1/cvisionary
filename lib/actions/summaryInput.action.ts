@@ -44,9 +44,6 @@ const generateSummary = async (input: GenerateSummaryInput) => {
         ${skills}
     `;
 
-  console.log("systemMessage", systemMessage);
-  console.log("userMessage", userMessage);
-
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [

@@ -9,14 +9,18 @@ import { BorderStyles } from "./BorderStyleButton";
 
 interface ResumePreviewProps {
   resumeData: ResumeValues;
+  contentRef?: React.Ref<HTMLDivElement>;
   className?: string;
 }
 
-const ResumePreview = ({ resumeData, className }: ResumePreviewProps) => {
+const ResumePreview = ({
+  resumeData,
+  className,
+  contentRef,
+}: ResumePreviewProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { width } = useDimensions(containerRef);
-
   return (
     <div
       className={cn(
@@ -28,6 +32,8 @@ const ResumePreview = ({ resumeData, className }: ResumePreviewProps) => {
       <div
         className={cn("space-y-6 p-6", !width && "invisible")}
         style={{ zoom: (1 / 794) * width }}
+        ref={contentRef}
+        id="resumePreviewContent"
       >
         <PersonalInfoHeader resumeData={resumeData} />
         <SummarySection resumeData={resumeData} />
@@ -183,7 +189,7 @@ const EducationSection = ({ resumeData }: ResumeSectionProps) => {
   return (
     <>
       <hr className="border-2" style={{ borderColor: colorHex }} />
-      <div className="space-y-3">
+      <div className="break-inside-avoid space-y-3">
         <p className="text-lg font-semibold" style={{ color: colorHex }}>
           Education
         </p>
