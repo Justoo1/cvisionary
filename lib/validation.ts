@@ -88,6 +88,7 @@ export const resumeSchema = z.object({
   ...summarySchema.shape,
   colorHex: optionalString,
   borderStyle: optionalString,
+  template: optionalString,
 });
 
 export type ResumeValues = Omit<z.infer<typeof resumeSchema>, "photo"> & {
@@ -111,6 +112,7 @@ export const getDefaultResumeValues = (): ResumeValues => ({
   summary: "",
   id: "",
   photo: null,
+  template: "",
 });
 
 export const generateWorkExperienceSchema = z.object({

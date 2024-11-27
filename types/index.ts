@@ -36,3 +36,22 @@ export type Country = {
   id: string;
   name: string;
 };
+
+export interface ResumeSectionProps {
+  resumeData: ResumeValues;
+  className?: string;
+  templateName?: string;
+}
+
+export const TEMPLATENAMES = {
+  MODERN: "modern",
+  MINIMALIST: "minimalist",
+  CREATIVE: "creative",
+  BASIC: "basic",
+  CANADA: "canada",
+  GHANA: "ghana",
+  US: "us",
+  UK: "uk",
+  AUSTRALIA: "australia",
+  GERMANY: "germany",
+};

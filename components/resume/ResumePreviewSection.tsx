@@ -1,36 +1,50 @@
+import React from "react";
 import { ResumeValues } from "@/lib/validation";
-// import ResumePreview from "./ResumePreview";
-import ColorPicker from "./ColorPicker";
-import BorderStyleButton from "./BorderStyleButton";
 import { cn } from "@/lib/utils";
-import { useRef } from "react";
 import { Button } from "../ui/button";
 import { Printer } from "lucide-react";
 import { useReactToPrint } from "react-to-print";
 import ResumePreview from "./ResumePreview";
+import ColorPicker from "../shared/ColorPicker";
+import BorderStyleButton from "../shared/BorderStyleButton";
 
-interface ReumePreviewSectionProps {
+interface ResumePreviewSectionProps {
   resumeData: ResumeValues;
   setResumeData: (data: ResumeValues) => void;
   className?: string;
+  templateName?: string;
+  modernTemplateSidebarPosition?: "left" | "right";
+  contentRef: React.RefObject<HTMLDivElement>;
+  hideButtons?: boolean;
 }
 
-const ReumePreviewSection = ({
+const ResumePreviewSection: React.FC<ResumePreviewSectionProps> = ({
   resumeData,
   setResumeData,
   className,
-}: ReumePreviewSectionProps) => {
-  const contentRef = useRef<HTMLDivElement>(null);
+  templateName = "basic",
+  modernTemplateSidebarPosition = "left",
+  contentRef,
+  hideButtons,
+}) => {
+  // if(contentRef)
+  // const contentRef = useRef<HTMLDivElement>(null);
 
   const reactToPrintFn = useReactToPrint({
-    contentRef: contentRef,
+    contentRef,
     documentTitle: resumeData.title || "Resume",
   });
+
   return (
     <div
       className={cn("group relative hidden w-full md:flex md:w-1/2", className)}
     >
-      <div className="absolute left-1 top-1 flex flex-none flex-col gap-3 opacity-50 transition-opacity group-hover:opacity-100 lg:left-3 lg:top-3 2xl:opacity-100">
+      <div
+        className={cn(
+          "absolute left-1 top-1 flex flex-none flex-col gap-3 opacity-50 transition-opacity group-hover:opacity-100 lg:left-3 lg:top-3 2xl:opacity-100",
+          hideButtons && "hidden",
+        )}
+      >
         <ColorPicker
           color={resumeData.colorHex}
           onChange={(color) => {
@@ -52,10 +66,12 @@ const ReumePreviewSection = ({
           className="max-w-2xl shadow-md"
           resumeData={resumeData}
           contentRef={contentRef}
+          templateName={templateName}
+          modernTemplateSidebarPosition={modernTemplateSidebarPosition}
         />
       </div>
     </div>
   );
 };
 
-export default ReumePreviewSection;
+export default ResumePreviewSection;

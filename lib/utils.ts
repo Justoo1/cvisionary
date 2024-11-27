@@ -85,6 +85,7 @@ export const mapToResumeValues = (data: ResumeServerData): ResumeValues => {
     })),
     skills: data.skills,
     borderStyle: data.borderStyle,
+    template: data.template,
     colorHex: data.colorHex,
     summary: data.summary || undefined,
   };

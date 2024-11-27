@@ -32,6 +32,7 @@ model Resume {
   country String?
   phone String?
   email String?
+  template String @default("basic")
 
   skills String[]
   workExperiences WorkExperience[]

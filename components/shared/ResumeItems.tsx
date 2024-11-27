@@ -22,10 +22,12 @@ import { MoreVertical, Printer, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState, useTransition } from "react";
 import { useReactToPrint } from "react-to-print";
-import ResumePreview from "./ResumePreview";
+// import ResumePreview from "./ResumePreview";
 import { ResumeServerData } from "@/types";
 import deleteResume from "@/lib/actions/delete.action";
 import LoadingButton from "./LoadingButton";
+import ResumePreviewSection from "../resume/ResumePreviewSection";
+import { ResumeValues } from "@/lib/validation";
 
 interface ResumeItemProps {
   resume: ResumeServerData;
@@ -33,6 +35,9 @@ interface ResumeItemProps {
 
 export default function ResumeItem({ resume }: ResumeItemProps) {
   const contentRef = useRef<HTMLDivElement>(null);
+  const [resumeData, setResumeData] = useState<ResumeValues>(
+    mapToResumeValues(resume),
+  );
 
   const reactToPrintFn = useReactToPrint({
     contentRef,
@@ -63,10 +68,18 @@ export default function ResumeItem({ resume }: ResumeItemProps) {
           href={`/editor?resumeId=${resume.id}`}
           className="relative inline-block w-full"
         >
-          <ResumePreview
+          {/* <ResumePreview
             resumeData={mapToResumeValues(resume)}
             contentRef={contentRef}
             className="overflow-hidden shadow-sm transition-shadow group-hover:shadow-lg"
+          /> */}
+          <ResumePreviewSection
+            resumeData={resumeData}
+            setResumeData={setResumeData}
+            templateName={resumeData.template}
+            contentRef={contentRef}
+            hideButtons
+            className="overflow-hidden shadow-sm transition-shadow group-hover:shadow-lg md:w-11/12"
           />
           <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
         </Link>

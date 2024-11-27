@@ -11,7 +11,7 @@ import { useTheme } from "next-themes";
 const Navbar = () => {
   const { theme } = useTheme();
   return (
-    <header className="p-3 shadow-sm">
+    <header className="bg-blue-700 p-3 shadow-sm dark:bg-blue-900">
       <div className="tems-center mx-auto flex max-w-7xl justify-between gap-3">
         <Link href="/resumes" className="flex items-center gap-2">
           <Image
@@ -19,9 +19,9 @@ const Navbar = () => {
             alt="CVivisonary Logo"
             width={35}
             height={35}
-            className="rounded-full"
+            className=""
           />
-          <span>CVisionary</span>
+          {/* <span className="text-gray-50">CVisionary</span> */}
         </Link>
 
         <div className="flex items-center gap-3">

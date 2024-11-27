@@ -5,7 +5,11 @@ import { auth } from "@clerk/nextjs/server";
 import { Metadata } from "next";
 
 interface EditorProps {
-  searchParams: Promise<{ resumeId?: string }>;
+  searchParams: Promise<{
+    resumeId?: string;
+    templateName?: string;
+    country?: string;
+  }>;
 }
 
 export const metadata: Metadata = {
@@ -13,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 const Editor = async ({ searchParams }: EditorProps) => {
-  const { resumeId } = await searchParams;
+  const { resumeId, templateName, country } = await searchParams;
   const { userId } = await auth();
 
   if (!userId) return null;
@@ -24,7 +28,13 @@ const Editor = async ({ searchParams }: EditorProps) => {
         include: resumeDataInclude,
       })
     : null;
-  return <ResumeEditor resumeToEdit={resumeToEdit} />;
+  return (
+    <ResumeEditor
+      resumeToEdit={resumeToEdit}
+      templateName={templateName}
+      country={country}
+    />
+  );
 };
 
 export default Editor;

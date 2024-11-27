@@ -22,6 +22,31 @@ export const formUrlQuery = ({ params, key, value }: UrlQueryParams) => {
   });
 };
 
+export const formNewUrlWithArray = ({
+  path,
+  keys,
+  values,
+}: {
+  path: string; // The path after the base URL, e.g., "/editor"
+  keys: string[];
+  values: string[];
+}) => {
+  if (keys.length !== values.length) {
+    throw new Error("Keys and values arrays must have the same length.");
+  }
+
+  const queryString: Record<string, string> = {};
+
+  keys.forEach((key, index) => {
+    queryString[key] = values[index];
+  });
+
+  return qs.stringifyUrl({
+    url: `${window.location.origin}${path}`, // Dynamically fetch the base URL
+    query: queryString,
+  });
+};
+
 export const removeKeysFromQuery = ({
   params,
   keysToRemove,

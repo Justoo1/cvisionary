@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CVisionary CV Builder Application 🚀 [LOGO]("/assets/images/logo.png)
 
-## Getting Started
+![CV Editor Page](image.png) <!-- Add a screenshot link or remove this line -->
 
-First, run the development server:
+CVisonary, a cutting-edge CV Builder application designed to simplify the job application process for engineers and professionals. With AI integration for automated CV generation and Stripe-powered premium features, this application offers both convenience and customization.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **AI-Powered Quick Fill**: Automatically generates a professional CV summary using OpenAI integration.
+- **Customizable Templates**: Multiple CV templates to suit various job roles.
+- **Premium Features**:
+  - Advanced template designs.
+  - Enhanced AI suggestions for skill and experience optimization.
+  - One-click export options (PDF).
+- **Stripe Integration**: Secure payment gateway for unlocking premium features.
+- **User Management**: Integrated with Clerk for seamless user authentication and management.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend and Backend**: [Next.js](https://nextjs.org/) for fast, server-rendered React applications.
+- **Styling**: Tailwind CSS for efficient and modern UI designs.
+- **AI Integration**: [ChatGPT API](https://openai.com/api/) for generating summaries and content suggestions.
+- **Database (Vercel storage)**: Neon Postgresql database
+- **Payment Processing**: [Stripe](https://stripe.com/) for handling subscriptions and transactions.
+- **Authentication**: [Clerk](https://clerk.dev/) for secure user management.
 
-## Learn More
+## 🎯 Use Cases
 
-To learn more about Next.js, take a look at the following resources:
+- **Job Seekers**: Effortlessly create professional CVs with minimal input.
+- **Recruiters**: Offer candidates an intuitive tool to stand out.
+- **Career Coaches**: Enhance sessions with personalized CV generation for clients.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Getting Started
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Prerequisites
 
-## Deploy on Vercel
+- Node.js v20.15.1 or later.
+- Stripe API keys for payment processing.
+- OpenAI API key for AI integration.
+- Clerk Account
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Installation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/cvisionary.git
+   cd cvisionary
+
+   ```
+
+2. npm install
+
+### .ENV
+
+3. Create a .env.local file and add the following environment variables:
+
+- OPENAI_API_KEY=your_openai_api_key
+- NEXT_PUBLIC_STRIPE_API_KEY=your_stripe_api_key
+- CLERK_SECRET_KEY
+- NEXT_PUBLIC_CLERK_SIGN_IN_URL=""
+- NEXT_PUBLIC_CLERK_SIGN_UP_URL=""
+- DATABASE_URL
+- DATABASE_URL_UNPOOLED
+- PGHOST
+- PGHOST_UNPOOLED
+- PGUSER
+- PGDATABASE
+- PGPASSWORD
+- POSTGRES_URL
+- POSTGRES_URL_NON_POOLING
+- POSTGRES_USER="neondb_owner"
+- POSTGRES_HOST
+- POSTGRES_PASSWORD
+- POSTGRES_DATABASE
+- POSTGRES_URL_NO_SSL
+- POSTGRES_PRISMA_URL
+- BLOB_READ_WRITE_TOKEN
+
+4. Start the development server:
+   npm run dev
+
+5. Open the app at http://localhost:3000.
+
+# 📦 Deployment
+
+Deploy on Vercel for a seamless deployment experience:
+Connect your repository.
+Set environment variables in Vercel settings.
+Deploy!
+
+📸 Screenshots
+
+# 🤝 Contributing
+
+We welcome contributions! Please fork the repo, create a feature branch, and submit a pull request.
+
+Built with ❤️ by Justice Amankrah.
