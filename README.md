@@ -1,4 +1,4 @@
-# CVisionary CV Builder Application 🚀 ![LOGO]("public\assets\images\logo.png")
+# CVisionary CV Builder Application 🚀 ![LOGO](public/assets/images/logo.png)
 
 ![CV Editor Page](image.png)
 
