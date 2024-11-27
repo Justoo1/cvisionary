@@ -1,6 +1,6 @@
-# CVisionary CV Builder Application 🚀 [LOGO]("/assets/images/logo.png)
+# CVisionary CV Builder Application 🚀 ![LOGO]("public\assets\images\logo.png")
 
-![CV Editor Page](image.png) <!-- Add a screenshot link or remove this line -->
+![CV Editor Page](image.png)
 
 CVisonary, a cutting-edge CV Builder application designed to simplify the job application process for engineers and professionals. With AI integration for automated CV generation and Stripe-powered premium features, this application offers both convenience and customization.
 
@@ -44,7 +44,7 @@ CVisonary, a cutting-edge CV Builder application designed to simplify the job ap
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/cvisionary.git
+   git clone https://github.com/Justoo1/cvisionary.git
    cd cvisionary
 
    ```
